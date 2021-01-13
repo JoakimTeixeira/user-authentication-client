@@ -9,13 +9,13 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Switch>
-        <Container className="col-md-6 mt-5">
+      <Container className="col-md-6 mt-5">
+        <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/login" component={Login} />
           <Route path="/register" component={Register} />
-        </Container>
-      </Switch>
+        </Switch>
+      </Container>
     </BrowserRouter>
   );
 }
