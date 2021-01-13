@@ -9,15 +9,12 @@ const NavBar = () => {
         LOGO
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={NavLink} to="/" exact>
-            Home
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/register">
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Nav className="mr-2">
+          <Nav.Link as={NavLink} to="/register" exact>
             Register
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/login">
+          <Nav.Link as={NavLink} to="/login" exact>
             Login
           </Nav.Link>
         </Nav>
