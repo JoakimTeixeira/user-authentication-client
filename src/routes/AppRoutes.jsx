@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Login, Register } from 'pages/auth';
 import Home from 'pages/Home';
 import NavBar from 'components/NavBar';
-import UserSettings from 'pages/UserSettings/UserSettings';
+import { UserSettings } from 'pages/UserSettings';
 import PrivateRoute from './PrivateRoute';
 
 function AppRoutes() {
