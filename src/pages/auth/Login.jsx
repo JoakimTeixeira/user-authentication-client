@@ -27,10 +27,7 @@ const Login = () => {
 
     const loginResponse = await Axios.post('http://localhost:3001/users/login', loginUser);
 
-    setUserData({
-      token: loginResponse.data.token,
-      user: loginResponse.data.user,
-    });
+    setUserData(loginResponse.data.user);
 
     localStorage.setItem('auth-token', loginResponse.data.token);
 

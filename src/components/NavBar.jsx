@@ -8,10 +8,7 @@ const NavBar = () => {
   const history = useHistory();
 
   const logoutUser = () => {
-    setUserData({
-      token: undefined,
-      user: undefined,
-    });
+    setUserData(undefined);
 
     localStorage.setItem('auth-token', '');
     history.push('/');
@@ -25,9 +22,9 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className="mr-2">
-          {userData.user ? (
+          {userData ? (
             <>
-              <Nav.Link as={NavLink} to={`/${userData.user.id}`} exact>
+              <Nav.Link as={NavLink} to={`/${userData.id}`} exact>
                 User Settings
               </Nav.Link>
               <Button onClick={logoutUser}>Logout</Button>

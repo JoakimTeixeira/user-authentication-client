@@ -28,14 +28,16 @@ const Settings = () => {
     e.preventDefault();
 
     const newUser = {
-      name: user.name || userData.user.name,
-      email: user.email || userData.user.email,
-      phoneNumber: user.phoneNumber || userData.user.phoneNumber,
-      cpf: user.cpf || userData.user.cpf,
+      name: user.name || userData.name,
+      email: user.email || userData.email,
+      phoneNumber: user.phoneNumber || userData.phoneNumber,
+      cpf: user.cpf || userData.cpf,
     };
 
-    await Axios.put(`http://localhost:3001/users/${userData.user.id}`, newUser, {
-      headers: { 'x-auth-token': userData.token, 'Content-Type': 'application/json' },
+    const token = localStorage.getItem('auth-token') || '';
+
+    await Axios.put(`http://localhost:3001/users/${userData.id}`, newUser, {
+      headers: { 'x-auth-token': token, 'Content-Type': 'application/json' },
     });
 
     resetFields();
@@ -44,16 +46,15 @@ const Settings = () => {
   const submitRemove = async (e) => {
     e.preventDefault();
 
-    await Axios.delete(`http://localhost:3001/users/${userData.user.id}`, {
-      headers: { 'x-auth-token': userData.token },
+    const token = localStorage.getItem('auth-token') || '';
+
+    await Axios.delete(`http://localhost:3001/users/${userData.id}`, {
+      headers: { 'x-auth-token': token },
     });
 
     resetFields();
 
-    setUserData({
-      token: '',
-      user: '',
-    });
+    setUserData(undefined);
     history.push('/');
   };
 
