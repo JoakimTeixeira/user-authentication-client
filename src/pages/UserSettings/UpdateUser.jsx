@@ -63,7 +63,7 @@ function UpdateUser({ user, handleUserInput, resetFields }) {
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
               name="phoneNumber"
-              type="text"
+              type="number"
               placeholder="9999999999"
               aria-label="Phone Number"
               value={user.phoneNumber}
@@ -75,7 +75,7 @@ function UpdateUser({ user, handleUserInput, resetFields }) {
             <Form.Label>Cpf</Form.Label>
             <Form.Control
               name="cpf"
-              type="text"
+              type="number"
               placeholder="99999999999"
               aria-label="Cpf"
               value={user.cpf}

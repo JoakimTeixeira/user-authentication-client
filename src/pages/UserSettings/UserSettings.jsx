@@ -6,21 +6,24 @@ const UserSettings = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
-    phoneNumber: '',
-    cpf: '',
+    phoneNumber: undefined,
+    cpf: undefined,
   });
 
   const resetFields = () => {
     setUser({
       name: '',
       email: '',
-      phoneNumber: '',
-      cpf: '',
+      phoneNumber: undefined,
+      cpf: undefined,
     });
   };
 
   const handleUserInput = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (

@@ -6,8 +6,8 @@ const Register = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
-    phoneNumber: '',
-    cpf: '',
+    phoneNumber: undefined,
+    cpf: undefined,
     password: '',
     passwordCheck: '',
   });
@@ -16,8 +16,8 @@ const Register = () => {
     setUser({
       name: '',
       email: '',
-      phoneNumber: '',
-      cpf: '',
+      phoneNumber: undefined,
+      cpf: undefined,
       password: '',
       passwordCheck: '',
     });
@@ -63,7 +63,7 @@ const Register = () => {
         <Form.Group as={Col} controlId="formGridPhoneNumber">
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             placeholder="9999999999"
             aria-label="Phone Number"
             value={user.phoneNumber}
@@ -74,7 +74,7 @@ const Register = () => {
         <Form.Group as={Col} controlId="formGridCpf">
           <Form.Label>Cpf</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             placeholder="99999999999"
             aria-label="Cpf"
             value={user.cpf}
