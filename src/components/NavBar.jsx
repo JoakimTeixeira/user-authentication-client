@@ -1,16 +1,20 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import { AuthContext } from 'contexts/AuthContext';
 
 const NavBar = () => {
   const { userData, setUserData } = useContext(AuthContext);
+  const history = useHistory();
+
   const logoutUser = () => {
     setUserData({
       token: undefined,
       user: undefined,
     });
+
     localStorage.setItem('auth-token', '');
+    history.push('/');
   };
 
   return (
