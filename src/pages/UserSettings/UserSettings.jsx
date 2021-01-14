@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UpdateUser from './UpdateUser';
 import RemoveUser from './RemoveUser';
 import GetUser from './GetUser';
+import GetToken from './GetToken';
 
 const UserSettings = () => {
   const [user, setUser] = useState({
@@ -34,6 +35,7 @@ const UserSettings = () => {
       <GetUser />
       <UpdateUser user={user} handleUserInput={handleUserInput} resetFields={resetFields} />
       <RemoveUser resetFields={resetFields} />
+      <GetToken />
     </>
   );
 };
