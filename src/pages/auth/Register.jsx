@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
-import { AuthContext } from 'contexts/AuthContext';
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -12,8 +11,6 @@ const Register = () => {
     password: '',
     passwordCheck: '',
   });
-
-  const { setUserData } = useContext(AuthContext);
 
   const resetFields = () => {
     setUser({
@@ -32,18 +29,6 @@ const Register = () => {
     const newUser = user;
 
     await Axios.post('http://localhost:3001/users/register', newUser);
-
-    const loginResponse = await Axios.post('http://localhost:3001/users/login', {
-      email: user.email,
-      password: user.password,
-    });
-
-    setUserData({
-      token: loginResponse.data.token,
-      user: loginResponse.data.user,
-    });
-
-    localStorage.setItem('auth-token', loginResponse.data.token);
 
     resetFields();
   };
