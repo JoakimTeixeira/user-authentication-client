@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UpdateUser from './UpdateUser';
 import RemoveUser from './RemoveUser';
+import GetUser from './GetUser';
 
 const UserSettings = () => {
   const [user, setUser] = useState({
@@ -30,6 +31,7 @@ const UserSettings = () => {
     <>
       <h1 className="text-center">User Settings</h1>
 
+      <GetUser />
       <UpdateUser user={user} handleUserInput={handleUserInput} resetFields={resetFields} />
       <RemoveUser resetFields={resetFields} />
     </>
