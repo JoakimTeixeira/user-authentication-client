@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Login, Register } from 'pages/auth';
 import Home from 'pages/Home';
 import NavBar from 'components/NavBar';
-import Settings from 'pages/Settings';
+import UserSettings from 'pages/UserSettings/UserSettings';
 import PrivateRoute from './PrivateRoute';
 
 function AppRoutes() {
@@ -16,7 +16,7 @@ function AppRoutes() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <PrivateRoute path="/:id" component={Settings} />
+          <PrivateRoute path="/:id" component={UserSettings} />
         </Switch>
       </Container>
     </BrowserRouter>

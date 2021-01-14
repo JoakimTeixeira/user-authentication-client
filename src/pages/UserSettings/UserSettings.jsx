@@ -4,7 +4,7 @@ import Axios from 'axios';
 import { Button, Col, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-const Settings = () => {
+const UserSettings = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -128,4 +128,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default UserSettings;
