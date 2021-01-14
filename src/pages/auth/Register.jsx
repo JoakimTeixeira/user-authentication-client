@@ -6,8 +6,8 @@ const Register = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
-    phoneNumber: undefined,
-    cpf: undefined,
+    phoneNumber: '',
+    cpf: '',
     password: '',
     passwordCheck: '',
   });
@@ -16,8 +16,8 @@ const Register = () => {
     setUser({
       name: '',
       email: '',
-      phoneNumber: undefined,
-      cpf: undefined,
+      phoneNumber: '',
+      cpf: '',
       password: '',
       passwordCheck: '',
     });

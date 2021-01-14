@@ -8,23 +8,23 @@ const UserSettings = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
-    phoneNumber: undefined,
-    cpf: undefined,
+    phoneNumber: '',
+    cpf: '',
   });
 
   const resetFields = () => {
     setUser({
       name: '',
       email: '',
-      phoneNumber: undefined,
-      cpf: undefined,
+      phoneNumber: '',
+      cpf: '',
     });
   };
 
   const handleUserInput = (e) => {
     setUser({
       ...user,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.type === 'number' ? Number(e.target.value) : e.target.value,
     });
   };
 

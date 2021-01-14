@@ -98,18 +98,9 @@ UpdateUser.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.string,
-    phoneNumber: PropTypes.number,
-    cpf: PropTypes.number,
-  }),
+    phoneNumber: PropTypes.oneOfType([() => null, PropTypes.number]),
+    cpf: PropTypes.oneOfType([() => null, PropTypes.number]),
+  }).isRequired,
   handleUserInput: PropTypes.func.isRequired,
   resetFields: PropTypes.func.isRequired,
-};
-
-UpdateUser.defaultProps = {
-  user: {
-    name: undefined,
-    email: undefined,
-    phoneNumber: undefined,
-    cpf: undefined,
-  },
 };
