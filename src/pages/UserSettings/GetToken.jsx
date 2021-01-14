@@ -13,7 +13,7 @@ function GetToken() {
   };
 
   return (
-    <article className="mt-5 mb-5">
+    <article className="mt-5">
       <h2 className="mb-3">User token (JWT)</h2>
       {token && <p className="text-break">{`Token: ${token}`}</p>}
       <Button variant="primary" type="submit" onClick={handleToken}>

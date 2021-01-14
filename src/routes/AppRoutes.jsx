@@ -11,7 +11,7 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Container className="col-md-6 mt-5">
+      <Container className="col-md-6 mt-5 mb-5">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />

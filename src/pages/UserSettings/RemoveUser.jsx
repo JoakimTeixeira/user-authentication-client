@@ -24,7 +24,7 @@ function RemoveUser({ resetFields }) {
   };
 
   return (
-    <article className="mt-5 mb-5">
+    <article className="mt-5">
       <h2 className="mb-3">Remove Account</h2>
       <Button variant="danger" type="submit" onClick={submitRemove}>
         Remove my account
