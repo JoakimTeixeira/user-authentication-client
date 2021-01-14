@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     const isLoggedIn = async () => {
       const token = localStorage.getItem('auth-token') || '';
 
-      if (!token) {
+      if (!token || !userData) {
         localStorage.setItem('auth-token', '');
       }
     };
