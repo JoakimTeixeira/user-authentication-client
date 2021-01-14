@@ -21,19 +21,12 @@ const UserSettings = () => {
     });
   };
 
-  const handleUserInput = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.type === 'number' ? Number(e.target.value) : e.target.value,
-    });
-  };
-
   return (
     <>
       <h1 className="text-center">User Settings</h1>
 
       <GetUser />
-      <UpdateUser user={user} handleUserInput={handleUserInput} resetFields={resetFields} />
+      <UpdateUser user={user} setUser={setUser} resetFields={resetFields} />
       <RemoveUser resetFields={resetFields} />
       <GetToken />
     </>

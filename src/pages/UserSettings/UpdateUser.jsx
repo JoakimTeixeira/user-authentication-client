@@ -3,8 +3,9 @@ import React, { useContext } from 'react';
 import Axios from 'axios';
 import { AuthContext } from 'contexts/AuthContext';
 import PropTypes from 'prop-types';
+import handleInput from 'utils/handleInput';
 
-function UpdateUser({ user, handleUserInput, resetFields }) {
+function UpdateUser({ user, setUser, resetFields }) {
   const { userData, setUserData } = useContext(AuthContext);
 
   const submitUpdate = async (e) => {
@@ -41,7 +42,7 @@ function UpdateUser({ user, handleUserInput, resetFields }) {
               placeholder="John Doe"
               aria-label="Name"
               value={user.name}
-              onChange={(e) => handleUserInput(e)}
+              onChange={(e) => handleInput(e, user, setUser)}
             />
           </Form.Group>
 
@@ -53,7 +54,7 @@ function UpdateUser({ user, handleUserInput, resetFields }) {
               placeholder="johndoe@email.com"
               aria-label="Email"
               value={user.email}
-              onChange={(e) => handleUserInput(e)}
+              onChange={(e) => handleInput(e, user, setUser)}
             />
           </Form.Group>
         </Form.Row>
@@ -67,7 +68,7 @@ function UpdateUser({ user, handleUserInput, resetFields }) {
               placeholder="9999999999"
               aria-label="Phone Number"
               value={user.phoneNumber}
-              onChange={(e) => handleUserInput(e)}
+              onChange={(e) => handleInput(e, user, setUser)}
             />
           </Form.Group>
 
@@ -79,7 +80,7 @@ function UpdateUser({ user, handleUserInput, resetFields }) {
               placeholder="99999999999"
               aria-label="Cpf"
               value={user.cpf}
-              onChange={(e) => handleUserInput(e)}
+              onChange={(e) => handleInput(e, user, setUser)}
             />
           </Form.Group>
         </Form.Row>
@@ -101,6 +102,6 @@ UpdateUser.propTypes = {
     phoneNumber: PropTypes.oneOfType([() => null, PropTypes.number]),
     cpf: PropTypes.oneOfType([() => null, PropTypes.number]),
   }).isRequired,
-  handleUserInput: PropTypes.func.isRequired,
+  setUser: PropTypes.func.isRequired,
   resetFields: PropTypes.func.isRequired,
 };
