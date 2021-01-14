@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Axios from 'axios';
+import getToken from 'utils/getToken';
 
 function GetToken() {
   const [token, setToken] = useState();
 
   const handleToken = async () => {
-    const tokenStorage = localStorage.getItem('auth-token') || '';
-
-    const tokenResponse = await Axios.get(`http://localhost:3001/users/auth/${tokenStorage}`, null);
+    const tokenResponse = await Axios.get(`http://localhost:3001/users/auth/${getToken()}`, null);
 
     setToken(tokenResponse.data.token);
   };

@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { AuthContext } from 'contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import getToken from 'utils/getToken';
 
 function RemoveUser({ resetFields }) {
   const { userData, setUserData } = useContext(AuthContext);
@@ -12,10 +13,8 @@ function RemoveUser({ resetFields }) {
   const submitRemove = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem('auth-token') || '';
-
     await Axios.delete(`http://localhost:3001/users/${userData.id}`, {
-      headers: { 'x-auth-token': token },
+      headers: { 'x-auth-token': getToken() },
     });
 
     resetFields();

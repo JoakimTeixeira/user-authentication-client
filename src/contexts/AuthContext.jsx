@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import getToken from 'utils/getToken';
 
 export const AuthContext = createContext();
 
@@ -8,9 +9,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const isLoggedIn = async () => {
-      const token = localStorage.getItem('auth-token') || '';
-
-      if (!token || !userData) {
+      if (!getToken() || !userData) {
         localStorage.setItem('auth-token', '');
       }
     };

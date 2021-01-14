@@ -1,6 +1,7 @@
 import { AuthContext } from 'contexts/AuthContext';
 import React, { useContext, useEffect, useState } from 'react';
 import Axios from 'axios';
+import getToken from 'utils/getToken';
 
 function GetUser() {
   const { userData } = useContext(AuthContext);
@@ -8,10 +9,8 @@ function GetUser() {
 
   useEffect(() => {
     const getUser = async () => {
-      const token = localStorage.getItem('auth-token') || '';
-
       const userResponse = await Axios.get(`http://localhost:3001/users/${userData.id}`, {
-        headers: { 'x-auth-token': token },
+        headers: { 'x-auth-token': getToken() },
       });
 
       setUser(userResponse);

@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { AuthContext } from 'contexts/AuthContext';
 import PropTypes from 'prop-types';
 import handleInput from 'utils/handleInput';
+import getToken from 'utils/getToken';
 
 function UpdateUser({ user, setUser, resetFields }) {
   const { userData, setUserData } = useContext(AuthContext);
@@ -19,10 +20,8 @@ function UpdateUser({ user, setUser, resetFields }) {
       cpf: user.cpf || userData.cpf,
     };
 
-    const token = localStorage.getItem('auth-token') || '';
-
     await Axios.put(`http://localhost:3001/users/${userData.id}`, newUser, {
-      headers: { 'x-auth-token': token, 'Content-Type': 'application/json' },
+      headers: { 'x-auth-token': getToken(), 'Content-Type': 'application/json' },
     });
 
     setUserData(newUser);
