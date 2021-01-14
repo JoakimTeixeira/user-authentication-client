@@ -5,6 +5,7 @@ import { Login, Register } from 'pages/auth';
 import Home from 'pages/Home';
 import NavBar from 'components/NavBar';
 import Settings from 'pages/Settings';
+import PrivateRoute from './PrivateRoute';
 
 function AppRoutes() {
   return (
@@ -15,7 +16,7 @@ function AppRoutes() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/:id" component={Settings} />
+          <PrivateRoute path="/:id" component={Settings} />
         </Switch>
       </Container>
     </BrowserRouter>
