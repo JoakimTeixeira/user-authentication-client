@@ -34,7 +34,7 @@ const Settings = () => {
       cpf: user.cpf || userData.user.cpf,
     };
 
-    await Axios.patch(`http://localhost:3001/users/${userData.user.id}`, newUser, {
+    await Axios.put(`http://localhost:3001/users/${userData.user.id}`, newUser, {
       headers: { 'x-auth-token': userData.token, 'Content-Type': 'application/json' },
     });
 
