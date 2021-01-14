@@ -1,9 +1,10 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Login, Register } from 'pages/auth';
 import Home from 'pages/Home';
 import NavBar from 'components/NavBar';
-import { Container } from 'react-bootstrap';
+import Settings from 'pages/Settings';
 
 function AppRoutes() {
   return (
@@ -12,8 +13,9 @@ function AppRoutes() {
       <Container className="col-md-6 mt-5">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
+          <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/:id" component={Settings} />
         </Switch>
       </Container>
     </BrowserRouter>

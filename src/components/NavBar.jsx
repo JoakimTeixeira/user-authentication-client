@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
+import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from 'contexts/AuthContext';
 
 const NavBar = () => {
@@ -22,7 +22,12 @@ const NavBar = () => {
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className="mr-2">
           {userData.user ? (
-            <Button onClick={logoutUser}>Logout</Button>
+            <>
+              <Nav.Link as={NavLink} to={`/${userData.user.id}`} exact>
+                User Settings
+              </Nav.Link>
+              <Button onClick={logoutUser}>Logout</Button>
+            </>
           ) : (
             <>
               <Nav.Link as={NavLink} to="/register" exact>
