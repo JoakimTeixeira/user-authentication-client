@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { AuthContext } from 'contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import handleInput from 'utils/handleInput';
+import AlertMessage from 'components/AlertMessage';
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -11,6 +12,7 @@ const Login = () => {
     password: '',
   });
 
+  const [isError, setIsError] = useState();
   const { setUserData } = useContext(AuthContext);
   const history = useHistory();
 
@@ -24,18 +26,23 @@ const Login = () => {
   const submitLogin = async (e) => {
     e.preventDefault();
 
-    const loginUser = user;
-    const loginResponse = await Axios.post('http://localhost:3001/users/login', loginUser);
+    try {
+      const loginUser = user;
+      const loginResponse = await Axios.post('http://localhost:3001/users/login', loginUser);
 
-    setUserData(loginResponse.data.user);
-    localStorage.setItem('auth-token', loginResponse.data.token);
-    resetFields();
+      setUserData(loginResponse.data.user);
+      localStorage.setItem('auth-token', loginResponse.data.token);
+      resetFields();
 
-    history.push('/');
+      history.push('/');
+    } catch (error) {
+      error.response.data.msg && setIsError(error.response.data.msg);
+    }
   };
 
   return (
     <Form>
+      {isError && <AlertMessage isError={isError} clearError={() => setIsError(undefined)} />}
       <Form.Group controlId="formGridEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control

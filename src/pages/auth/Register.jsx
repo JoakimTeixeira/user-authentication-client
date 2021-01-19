@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import handleInput from 'utils/handleInput';
+import AlertMessage from 'components/AlertMessage';
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -12,6 +13,8 @@ const Register = () => {
     password: '',
     passwordCheck: '',
   });
+
+  const [isError, setIsError] = useState();
 
   const resetFields = () => {
     setUser({
@@ -27,15 +30,20 @@ const Register = () => {
   const submitRegister = async (e) => {
     e.preventDefault();
 
-    const newUser = user;
+    try {
+      const newUser = user;
 
-    await Axios.post('http://localhost:3001/users/register', newUser);
+      await Axios.post('http://localhost:3001/users/register', newUser);
 
-    resetFields();
+      resetFields();
+    } catch (error) {
+      error.response.data.msg && setIsError(error.response.data.msg);
+    }
   };
 
   return (
     <Form>
+      {isError && <AlertMessage isError={isError} clearError={() => setIsError(undefined)} />}
       <Form.Row>
         <Form.Group as={Col} controlId="formGridName">
           <Form.Label>Name</Form.Label>
