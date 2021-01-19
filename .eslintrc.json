@@ -22,7 +22,8 @@
   "rules": {
     "import/no-absolute-path": "off",
     "import/no-unresolved": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }]
   },
   "settings": {
     "import/resolver": {
