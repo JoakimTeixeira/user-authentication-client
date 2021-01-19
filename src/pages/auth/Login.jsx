@@ -16,13 +16,6 @@ const Login = () => {
   const { setUserData } = useContext(AuthContext);
   const history = useHistory();
 
-  const resetFields = () => {
-    setUser({
-      email: '',
-      password: '',
-    });
-  };
-
   const submitLogin = async (e) => {
     e.preventDefault();
 
@@ -32,7 +25,6 @@ const Login = () => {
 
       setUserData(loginResponse.data.user);
       localStorage.setItem('auth-token', loginResponse.data.token);
-      resetFields();
 
       history.push('/');
     } catch (error) {

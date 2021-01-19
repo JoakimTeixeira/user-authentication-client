@@ -16,17 +16,6 @@ const Register = () => {
 
   const [isError, setIsError] = useState();
 
-  const resetFields = () => {
-    setUser({
-      name: '',
-      email: '',
-      phoneNumber: '',
-      cpf: '',
-      password: '',
-      passwordCheck: '',
-    });
-  };
-
   const submitRegister = async (e) => {
     e.preventDefault();
 
@@ -34,8 +23,6 @@ const Register = () => {
       const newUser = user;
 
       await Axios.post('http://localhost:3001/users/register', newUser);
-
-      resetFields();
     } catch (error) {
       error.response.data.msg && setIsError(error.response.data.msg);
     }
