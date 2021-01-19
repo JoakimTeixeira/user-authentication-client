@@ -67,7 +67,7 @@ const Register = () => {
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
             name="phoneNumber"
-            type="number"
+            type="text"
             placeholder="9999999999"
             aria-label="Phone Number"
             value={user.phoneNumber}
@@ -79,7 +79,7 @@ const Register = () => {
           <Form.Label>Cpf</Form.Label>
           <Form.Control
             name="cpf"
-            type="number"
+            type="text"
             placeholder="99999999999"
             aria-label="Cpf"
             value={user.cpf}

@@ -98,8 +98,8 @@ UpdateUser.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.string,
-    phoneNumber: PropTypes.oneOfType([() => null, PropTypes.number]),
-    cpf: PropTypes.oneOfType([() => null, PropTypes.number]),
+    phoneNumber: PropTypes.string,
+    cpf: PropTypes.string,
   }).isRequired,
   setUser: PropTypes.func.isRequired,
   resetFields: PropTypes.func.isRequired,

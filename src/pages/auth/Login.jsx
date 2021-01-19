@@ -25,13 +25,10 @@ const Login = () => {
     e.preventDefault();
 
     const loginUser = user;
-
     const loginResponse = await Axios.post('http://localhost:3001/users/login', loginUser);
 
     setUserData(loginResponse.data.user);
-
     localStorage.setItem('auth-token', loginResponse.data.token);
-
     resetFields();
 
     history.push('/');
