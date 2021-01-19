@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={Link} to="/">
+      <Navbar.Brand as={Link} to={!userData ? '/login' : '/'}>
         LOGO
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
