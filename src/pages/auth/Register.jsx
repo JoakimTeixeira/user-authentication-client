@@ -3,6 +3,7 @@ import { Button, Col, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import handleInput from 'utils/handleInput';
 import AlertMessage from 'components/AlertMessage';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -15,6 +16,7 @@ const Register = () => {
   });
 
   const [isError, setIsError] = useState();
+  const history = useHistory();
 
   const submitRegister = async (e) => {
     e.preventDefault();
@@ -23,6 +25,8 @@ const Register = () => {
       const newUser = user;
 
       await Axios.post('http://localhost:3001/users/register', newUser);
+
+      history.push('/login');
     } catch (error) {
       error.response.data.msg && setIsError(error.response.data.msg);
     }
