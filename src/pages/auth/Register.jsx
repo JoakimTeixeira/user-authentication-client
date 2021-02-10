@@ -24,7 +24,10 @@ const Register = () => {
     try {
       const newUser = user;
 
-      await Axios.post('http://localhost:3001/users/register', newUser);
+      await Axios.post(
+        'https://joakim-user-authentication-api.herokuapp.com/users/register',
+        newUser
+      );
 
       history.push('/login');
     } catch (error) {

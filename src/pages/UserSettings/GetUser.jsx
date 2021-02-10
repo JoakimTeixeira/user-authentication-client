@@ -9,9 +9,12 @@ function GetUser() {
 
   useEffect(() => {
     const getUser = async () => {
-      const userResponse = await Axios.get(`http://localhost:3001/users/${userData.id}`, {
-        headers: { 'x-auth-token': getToken() },
-      });
+      const userResponse = await Axios.get(
+        `https://joakim-user-authentication-api.herokuapp.com/users/${userData.id}`,
+        {
+          headers: { 'x-auth-token': getToken() },
+        }
+      );
 
       setUser(userResponse);
     };

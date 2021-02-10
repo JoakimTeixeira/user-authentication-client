@@ -20,9 +20,13 @@ function UpdateUser({ user, setUser, resetFields }) {
       cpf: user.cpf || userData.cpf,
     };
 
-    await Axios.put(`http://localhost:3001/users/${userData.id}`, newUser, {
-      headers: { 'x-auth-token': getToken(), 'Content-Type': 'application/json' },
-    });
+    await Axios.put(
+      `https://joakim-user-authentication-api.herokuapp.com/users/${userData.id}`,
+      newUser,
+      {
+        headers: { 'x-auth-token': getToken(), 'Content-Type': 'application/json' },
+      }
+    );
 
     setUserData(newUser);
     resetFields();

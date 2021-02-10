@@ -13,9 +13,12 @@ function RemoveUser({ resetFields }) {
   const submitRemove = async (e) => {
     e.preventDefault();
 
-    await Axios.delete(`http://localhost:3001/users/${userData.id}`, {
-      headers: { 'x-auth-token': getToken() },
-    });
+    await Axios.delete(
+      `https://joakim-user-authentication-api.herokuapp.com/users/${userData.id}`,
+      {
+        headers: { 'x-auth-token': getToken() },
+      }
+    );
 
     resetFields();
 

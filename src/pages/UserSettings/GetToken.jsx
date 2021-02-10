@@ -7,7 +7,10 @@ function GetToken() {
   const [token, setToken] = useState();
 
   const handleToken = async () => {
-    const tokenResponse = await Axios.get(`http://localhost:3001/users/auth/${getToken()}`, null);
+    const tokenResponse = await Axios.get(
+      `https://joakim-user-authentication-api.herokuapp.com/users/auth/${getToken()}`,
+      null
+    );
 
     setToken(tokenResponse.data.token);
   };
